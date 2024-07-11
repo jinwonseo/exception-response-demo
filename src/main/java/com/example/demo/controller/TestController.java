@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.common.exception.BaseRollbackException;
 import com.example.demo.dto.TestRequestDto;
+import com.example.demo.exception.TestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,6 @@ public class TestController {
 
     @PostMapping("/exceptions")
     public String exceptionTest() {
-        throw new BaseRollbackException(HttpStatus.BAD_REQUEST, "test", "test");
+        throw new TestException("test", "test");
     }
 }
